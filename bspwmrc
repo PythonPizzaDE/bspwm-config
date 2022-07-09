@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 
+xrandr --output DP-1 --left-of HDMI-0
 xrandr --output DP-1 --primary
 
 pgrep -x sxhkd > /dev/null || sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
@@ -32,8 +33,9 @@ bspc rule -a mpv manage=off state=floating
 # autostart
 picom --experimental-backends &
 nitrogen --restore &
-/home/paul/scripts/launch_polybar
-
-flatpak run com.discordapp.Discord &
+# /home/paul/scripts/launch_polybar
+~/.config/polybar/launch.sh & 
+# 
+# flatpak run com.discordapp.Discord &
 # firefox &
-chromium &
+# chromium &
